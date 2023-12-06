@@ -1,0 +1,60 @@
+{
+  "state": {
+    "stateVal": "DesicionState()"
+  },
+  "player1": {
+    "name": "Luis",
+    "pokemons": {
+      "contents": [
+        {
+          "pType": "Simsala",
+          "hp": 130,
+          "isDead": false,
+          "maxHp": 130
+        },
+        {
+          "pType": "Brutalanda",
+          "hp": 170,
+          "isDead": false,
+          "maxHp": 170
+        },
+        {
+          "pType": "Bisaflor",
+          "hp": 180,
+          "isDead": false,
+          "maxHp": 180
+        }
+      ],
+      "size": 3
+    },
+    "currentPoke": 0
+  },
+  "player2": {
+    "name": "Luis",
+    "pokemons": {
+      "contents": [
+        {
+          "pType": "Turtok",
+          "hp": 130,
+          "isDead": false,
+          "maxHp": 130
+        },
+        {
+          "pType": "Bisaflor",
+          "hp": 180,
+          "isDead": false,
+          "maxHp": 180
+        },
+        {
+          "pType": "Bisaflor",
+          "hp": 180,
+          "isDead": false,
+          "maxHp": 180
+        }
+      ],
+      "size": 3
+    },
+    "currentPoke": 0
+  },
+  "turn": 1
+}

@@ -1,0 +1,53 @@
+<template>
+  <main>
+    <div class="container">
+      <div class="image-container">
+      <img src="@/assets/images/gamefield.jpg">
+        <div class="overlay-content">
+          <div class="row h-50">
+            <div id="player-2-status" class="col">
+              <!-- @playerStatus(pokemon = pokemonPlayer2, player = 2) -->
+            </div>
+            <div id="player-2-pokemon" class="col position-relative">
+              <!-- @pokemonFront(pokemon = pokemonPlayer2.toString) -->
+            </div>
+          </div>
+          <div class="row h-50">
+            <div id="player-1-pokemon" class="col position-relative">
+              <!-- @pokemonBack(pokemon = pokemonPlayer1.toString) -->
+            </div>
+            <div id="player-1-status" class="col">
+              <!-- @playerStatus(pokemon = pokemonPlayer1, player = 1) -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="menu-field" class="mx-auto menu-field">
+          <!--
+            <div class="turn">
+                @if(turn == 1) {
+                    It's your turn @player1Name !
+                }
+                @if(turn == 2) {
+                    It's your turn @player2Name !
+                }
+            </div>
+            @if(gameState == "DesicionState()") {
+                @desicionState()
+            } else if(gameState == "FightingState()" && turn == 1) {
+            @fightingState(pokemon = pokemonPlayer1, isTurn = turn)
+            } else if(gameState == "FightingState()" && turn == 2) {
+            @fightingState(pokemon = pokemonPlayer2, isTurn = turn)
+            } else if(gameState == "SwitchPokemonState()" && turn == 1) {
+            @switchPokemonState(pokePack = pokePackPlayer1)
+            } else if(gameState == "SwitchPokemonState()" && turn == 2) {
+            @switchPokemonState(pokePack = pokePackPlayer2)
+            }
+            -->
+        </div>
+      </div>
+    </div>
+  </main>
+</template>

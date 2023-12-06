@@ -1,0 +1,142 @@
+.chooseTitle {
+    background-image: @titleBackground;
+    background-size: cover;
+    width: 56vh;
+    height: 14.8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chooseTitleContainer {
+    color: @fontColour;
+    display: flex;
+    font-family: 'Pokemon Fire Red', sans-serif;
+    font-size: 7vh;
+    justify-content: center;
+    padding-top: 5vh;
+    padding-bottom: 11vh;
+    text-shadow: @textShadow;
+}
+
+.confirmButton {
+    padding-bottom: 2.5vh;
+    font-size: 7vh;
+    width: 27vh;
+    background-image: url("../images/confirmButton.png");
+    background-size: cover;
+    font-family: 'Pokemon Fire Red', sans-serif;
+    color: white;
+    border: none;
+    background-color: transparent;
+    height: 12vh;
+    transition: filter 0.3s;
+    text-shadow:
+            -1.5px -1.5px 0 #558c87,
+            1.5px -1.5px 0 #558c87,
+            -1.5px  1.5px 0 #558c87,
+            1.5px  1.5px 0 #558c87;
+}
+
+.confirmButtonContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20vh;
+}
+
+.confirmButton:hover {
+    filter: brightness(1.2);
+}
+
+.confirm-shadow {
+    width: 33vh !important;
+    height: 17vh;
+    z-index: -99;
+    margin-top: -12.5vh !important;
+    background: radial-gradient(ellipse at center, #4e7844 19%, transparent 67%);
+}
+
+.cursor {
+    color: @fontColour;
+    display: none;
+    font-size: 4.3vh;
+    left: 0;
+    margin-left: 20.3vh;
+    position: absolute;
+    text-shadow: @textShadow;
+    top: 5.3vh;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.inputNames:focus + .cursor {
+    display: inline-block;
+    animation: blink 0.7s infinite;
+}
+
+.inputNames {
+    caret-color: transparent;
+    margin-left: 15vh;
+    height: 3vh;
+    width: 26vh !important;
+    margin-top: -0.8vh;
+    border: none !important;
+    outline: none;
+    font-family: 'Pokemon Fire Red', sans-serif;
+    color: @fontColour !important;
+    font-size: 4vh;
+    text-shadow: @textShadow;
+    text-transform: uppercase;
+}
+
+.playerNamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.playerName1 {
+    background-image: url("../images/yourName.png");
+    background-size: cover;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    margin-top: 3vh;
+    width: 51vh;
+    height: 13.4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.playerName2 {
+    background-image: url("../images/yourName2.png");
+    background-size: cover;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    margin-top: 3vh;
+    width: 51vh;
+    height: 13.4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.playerName-label {
+    font-family: 'Pokemon Fire Red', sans-serif;
+    color: @fontColour;
+    padding-left: 19vh;
+    padding-top: 0.3vh;
+    font-size: 5.3vh;
+    letter-spacing: -0.15vh;
+    text-shadow: @textShadow;
+}
+
