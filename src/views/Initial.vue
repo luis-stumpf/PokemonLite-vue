@@ -5,8 +5,8 @@
 
 <script>
 
-import PlayerNamesModule from '../components/modules/PlayersNames.module.vue';
-import PlayerPokemonsModule from '../components/modules/PlayerPokemons.module.vue';
+import PlayerNamesModule from '@/components/modules/PlayersNames.module.vue';
+import PlayerPokemonsModule from '@/components/modules/PlayerPokemons.module.vue';
 
 export default {
   name: 'Initial',

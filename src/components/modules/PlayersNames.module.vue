@@ -1,10 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="chooseTitleContainer">
-        <div class="chooseTitle">CHOOSE YOUR NAMES !</div>
-      </div>
-    </div>
+    <ChooseTitle title="CHOOSE YOUR NAMES" />
     <div class="row">
       <div class="playerNamesContainer">
         <div class="playerName1">
@@ -19,20 +15,25 @@
           <span class="cursor" id="cursor2">_</span>
         </div>
       </div>
-      <div class="confirmButtonContainer">
-        <input class="confirmButton" id="confirmButton" type="button" value="CONFIRM">
-      </div>
-      <div style="display: flex; flex-direction: column;  align-items: center;">
-        <span class="confirm-shadow"></span>
-      </div>
+      <ConfirmButton title="CONFIRM" />
     </div>
   </div>
 </template>
 
 <script>
+import ChooseTitle from '@/components/ChooseTitle.vue'
+import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
+
 export default {
   name: 'PlayerNamesModule',
   components: {
+    ChooseTitle,
+    ConfirmButton,
+  },
+  data() {
+    return {
+      pageTitle: "Choose your Names",
+    }
   },
   computed: {
   },
@@ -45,63 +46,8 @@ export default {
 @navBarColour: rgba(193, 229, 252, 0.94);
 @textShadow: 2px 2px rgba(210, 212, 202, 100);
 
-.chooseTitle {
-    background-image: url("@/assets/images/PlayerNamesTitle.png");
-    background-size: cover;
-    width: 56vh;
-    height: 14.8vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.chooseTitleContainer {
-    color: #626262;
-    display: flex;
-    font-family: 'Pokemon Fire Red', sans-serif;
-    font-size: 7vh;
-    justify-content: center;
-    padding-top: 5vh;
-    padding-bottom: 11vh;
-    text-shadow: 2px 2px rgba(210, 212, 202, 100);
-}
 
-.confirmButton {
-    padding-bottom: 2.5vh;
-    font-size: 7vh;
-    width: 27vh;
-    background-image: url("@/assets/images/confirmButton.png");
-    background-size: cover;
-    font-family: 'Pokemon Fire Red', sans-serif;
-    color: white;
-    border: none;
-    background-color: transparent;
-    height: 12vh;
-    transition: filter 0.3s;
-    text-shadow:
-            -1.5px -1.5px 0 #558c87,
-            1.5px -1.5px 0 #558c87,
-            -1.5px  1.5px 0 #558c87,
-            1.5px  1.5px 0 #558c87;
-}
-
-.confirmButtonContainer {
-    display: flex;
-    justify-content: center;
-    padding-top: 20vh;
-}
-
-.confirmButton:hover {
-    filter: brightness(1.2);
-}
-
-.confirm-shadow {
-    width: 33vh !important;
-    height: 17vh;
-    z-index: -99;
-    margin-top: -12.5vh !important;
-    background: radial-gradient(ellipse at center, #4e7844 19%, transparent 67%);
-}
 
 .cursor {
     color: #626262;

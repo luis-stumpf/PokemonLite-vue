@@ -1,20 +1,7 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="choosePokemonsTitleContainer">
-        <div class="chooseTitle">CHOOSE YOUR POKEMONS !</div>
-      </div>
-      <div class="showcase-box">
-        <!-- 
-                @for((pokemon, index) <- allPokemons.zipWithIndex) {
-                    <div class="img-wrapper">
-                        @pokemon.name
-                        <img class="pokemon-image img-fluid" src="@routes.Assets.versioned("images/pokemons/" + pokemon.name +"Front.gif")" height="200" alt="">
-                    </div>
-                }
-              -->
-      </div>
-    </div>
+    <ChooseTitle title="CHOOSE YOUR POKEMONS" />
+    <PokemonShowCase :allPokemons="allPokemons" />
     <div class="row">
       <div class="pokemonSelectionContainer">
         <div class="pokemonSelection">
@@ -96,20 +83,30 @@
           </div>
         </div>
       </div>
-      <div class="startButtonContainer">
-        <input class="confirmButton" id="confirmButtonPokemons" type="button" value="CONFIRM">
-      </div>
-      <div style="display: flex; flex-direction: column;  align-items: center;">
-        <span class="confirm-shadow"></span>
-      </div>
+      <ConfirmButton title="CONFIRM" />
     </div>
   </div>
 </template>
 
 <script>
+
+import ChooseTitle from '@/components/ChooseTitle.vue'
+import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
+import PokemonShowCase from '@/components/PokemonShowCase.vue';
+import CONSTANTS from '@/constants';
+
 export default {
   name: 'PlayerPokemonsModule',
   components: {
+    ChooseTitle,
+    ConfirmButton,
+    PokemonShowCase,
+  },
+  data() {
+    return {
+      pageTitle: "Choose your Pokemons",
+      allPokemons: CONSTANTS.allPokemons,
+    }
   },
   computed: {
   },
@@ -122,17 +119,6 @@ export default {
 @navBarColour: rgba(193, 229, 252, 0.94);
 @textShadow: 2px 2px rgba(210, 212, 202, 100);
 
-
-.chooseTitleContainer {
-  color: #626262;
-  display: flex;
-  font-family: 'Pokemon Fire Red', sans-serif;
-  font-size: 7vh;
-  justify-content: center;
-  padding-top: 5vh;
-  padding-bottom: 11vh;
-  text-shadow: 2px 2px rgba(210, 212, 202, 100);
-}
 
 .img-wrapper {
   align-items: center;
@@ -210,36 +196,4 @@ select {
   width: 15vh;
 }
 
-.showcase-box {
-  display: flex;
-  justify-content: center;
-  gap: 2vh;
-  margin-bottom: 2vh;
-}
-
-.confirmButton {
-  padding-bottom: 2.5vh;
-  font-size: 7vh;
-  width: 27vh;
-  background-image: url("@/assets/images/confirmButton.png");
-  background-size: cover;
-  font-family: 'Pokemon Fire Red', sans-serif;
-  color: white;
-  border: none;
-  background-color: transparent;
-  height: 12vh;
-  transition: filter 0.3s;
-  text-shadow:
-    -1.5px -1.5px 0 #558c87,
-    1.5px -1.5px 0 #558c87,
-    -1.5px 1.5px 0 #558c87,
-    1.5px 1.5px 0 #558c87;
-}
-
-.startButtonContainer {
-  display: flex;
-  justify-content: center;
-  padding-top: 20vh;
-  padding-top: 3vh;
-}
 </style>
