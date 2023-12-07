@@ -1,6 +1,6 @@
 <template>
   <div class="confirmButtonContainer">
-    <button class="confirmButton">
+    <button @click="submitForm" class="confirmButton">
       {{ title }}
     </button>
   </div>
@@ -18,9 +18,11 @@ export default {
       required: true,
     },
   },
-  components: {
-  },
-  computed: {
+  emits: ['form-submit'],
+  methods: {
+    submitForm() {
+      this.$emit('form-submit');
+    },
   },
 }
 </script>

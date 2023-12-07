@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <ChooseTitle title="CHOOSE YOUR POKEMONS" />
     <PokemonShowCase :allPokemons="allPokemons" />
-    <ChoosePokemonDropdownModule :allPokemons="allPokemons" />
-    <ConfirmButton title="CONFIRM" />
+    <ChoosePokemonDropdownModule :allPokemons="allPokemons" @change="handleInputChange"/>
+    <ConfirmButton @form-submit="handleSubmitForm" title="CONFIRM" />
   </div>
 </template>
 
@@ -27,7 +27,22 @@ export default {
     return {
       pageTitle: "Choose your Pokemons",
       allPokemons: CONSTANTS.allPokemons,
+      pageTitle: "Choose your Names",
+      playerPokemonsFormData: {
+        playerPokemons1: {},
+        playerPokemons2: {},
+      },
     }
+  },
+  methods: {
+    handleInputChange(updatedInput) {
+      // Merge the updated input into formData
+      this.playerPokemonsFormData = { ...this.playerPokemonsFormData, ...updatedInput };
+    },
+    handleSubmitForm() {
+      // Handle form submission logic, e.g., make an API request
+      console.log('Form submitted with data:', this.playerPokemonsFormData);
+    },
   },
   computed: {
   },

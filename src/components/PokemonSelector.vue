@@ -4,7 +4,7 @@
       <label for="player1Pokemon1">{{ playerName }}'s Pokemons: </label>
     </div>
     <div id="selection">
-      <select v-for="number in 3" :key="number" id="player1Pokemon1" name="player1Pokemon1">
+      <select v-for="(number, index) in 3" :key="number" id="player1Pokemon1" name="player1Pokemon1" v-model="selectedPokemons[index]">
         <option v-for="(pokemon, index) in allPokemons" :key="pokemon" :value="(index + 1)">
           {{ pokemon }}
         </option>
@@ -16,14 +16,32 @@
 <script>
 export default {
   name: 'PokemonSelector',
+  emits: ['change'],
   props: {
     playerName: {
+      type: String,
+      required: true,
+    },
+    playerPokemons: {
       type: String,
       required: true,
     },
     allPokemons: {
       type: Array,
       required: true,
+    },
+  },
+  data() {
+    return {
+      selectedPokemons: [],
+    }
+  },
+  watch: {
+    selectedPokemons: {
+      handler() {
+        this.$emit('change', { [this.playerPokemons]: this.selectedPokemons });
+      },
+      deep: true,
     },
   },
 }

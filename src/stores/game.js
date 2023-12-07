@@ -4,7 +4,7 @@ import axios from "axios";
 import CONSTANTS from '../constants';
 
 export const useGameStore = defineStore('game', () => {
-  const gameState = ref("InitialState()");
+  const gameState = ref("InitState()");
   const player1 = ref({});
   const player2 = ref({});
   const gameTurn = ref(0);
@@ -18,5 +18,10 @@ export const useGameStore = defineStore('game', () => {
       gameTurn.value = response.data.turn;
   }
 
-  return { gameState, player1, player2, gameTurn, getData };
+  async function getGameState() {
+    const response = await axios.get(`${CONSTANTS.serverUrl}/api/stateJson`)
+    gameState.value = response.data.stateVal;
+  }
+
+  return { gameState, player1, player2, gameTurn, getData, getGameState };
 });
