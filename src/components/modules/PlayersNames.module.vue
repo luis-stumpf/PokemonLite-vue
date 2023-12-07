@@ -43,7 +43,6 @@ export default {
     },
     handleSubmitForm() {
       // Handle form submission logic, e.g., make an API request
-      console.log('Form submitted with data:', this.namesFormData);
       axios.post(`${CONSTANTS.serverUrl}/api/initPlayerNames`, this.namesFormData)
     },
   },

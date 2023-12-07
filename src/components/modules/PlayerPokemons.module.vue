@@ -14,6 +14,7 @@ import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
 import PokemonShowCase from '@/components/PokemonShowCase.vue';
 import ChoosePokemonDropdownModule from '@/components/modules/ChoosePokemonDropdown.module.vue';
 import CONSTANTS from '@/constants';
+import axios from 'axios';
 
 export default {
   name: 'PlayerPokemonsModule',
@@ -41,7 +42,10 @@ export default {
     },
     handleSubmitForm() {
       // Handle form submission logic, e.g., make an API request
-      console.log('Form submitted with data:', this.playerPokemonsFormData);
+      axios.post(`${CONSTANTS.serverUrl}/api/initPlayerPokemons`, {
+        playerPokemons1: Object.values(this.playerPokemonsFormData.playerPokemons1),
+        playerPokemons2: Object.values(this.playerPokemonsFormData.playerPokemons2),
+      })
     },
   },
   computed: {
