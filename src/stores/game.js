@@ -5,8 +5,22 @@ import CONSTANTS from '../constants';
 
 export const useGameStore = defineStore('game', () => {
   const gameState = ref("InitState()");
-  const player1 = ref({});
-  const player2 = ref({});
+  const player1 = ref({    
+    name: "",
+    pokemons: {
+      contents: [{}, {}, {}],
+      size: 0
+    },
+    currentPoke: 0
+  });
+  const player2 = ref({    
+    name: "",
+    pokemons: {
+      contents: [{}, {}, {}],
+      size: 0
+    },
+    currentPoke: 0
+  });
   const gameTurn = ref(0);
 
   async function getData() {

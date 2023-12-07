@@ -5,10 +5,8 @@ import { useGameStore } from '@/stores/game';
 import PlayerNamesModule from '@/components/modules/PlayersNames.module.vue';
 import PlayerPokemonsModule from '@/components/modules/PlayerPokemons.module.vue';
 
-const { gameState } = storeToRefs(useGameStore());
 const { getGameState } = useGameStore();
-
-console.log(gameState.value);
+const { gameState } = storeToRefs(useGameStore());
 
 onMounted(async () => {
   await getGameState();
@@ -26,7 +24,6 @@ const isInitPlayerState = () => {
 
 
 <template>
-
   <PlayerNamesModule v-if="isInitPlayerState()" />
   <PlayerPokemonsModule v-if="isInitPlayerPokemonState()" />
 </template>
