@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  serverUrl: "localhost:9000",
+  serverUrl: "http://localhost:9000",
   allPokemons: [
     "Glurak",
     "Simsala",

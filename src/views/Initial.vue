@@ -1,3 +1,7 @@
+<script setup>
+import { useGameStore } from '@/stores/game';
+const { gameState } = useGameStore();
+</script>
 <template>
   <PlayerNamesModule v-if="isInitPlayerState" />
   <PlayerPokemonsModule v-if="isInitPlayerPokemonState" />
@@ -23,9 +27,6 @@ export default {
       if (this.gameState == "InitPlayerPokemonState()") return true;
       return true;
     },
-    gameState() {
-      return this.$store.state.gameState;
-    }
   },
 }
 </script>
