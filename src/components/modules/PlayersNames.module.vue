@@ -17,6 +17,8 @@
 import ChooseTitle from '@/components/ChooseTitle.vue'
 import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
 import PlayerNamesInput from '@/components/PlayerNamesInput.vue';
+import axios from 'axios';
+import CONSTANTS from '@/constants';
 
 export default {
   name: 'PlayerNamesModule',
@@ -42,6 +44,7 @@ export default {
     handleSubmitForm() {
       // Handle form submission logic, e.g., make an API request
       console.log('Form submitted with data:', this.namesFormData);
+      axios.post(`${CONSTANTS.serverUrl}/api/initPlayerNames`, this.namesFormData)
     },
   },
 }
