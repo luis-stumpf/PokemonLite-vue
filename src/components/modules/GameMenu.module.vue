@@ -1,27 +1,48 @@
+<script setup>
+import { computed, onMounted, ref } from 'vue';
+import { storeToRefs } from 'pinia';
+
+
+import DesicionState from '@/components/GameMenu/DesicionState.vue';
+import FightingState from '@/components/GameMenu/FightingState.vue';
+import SwitchPokemonState from '@/components/GameMenu/SwitchPokemonState.vue';
+import { useGameStore } from '@/stores/game';
+
+const { gameState, player1, player2, gameTurn } = storeToRefs(useGameStore());
+
+const currentPlayer = computed(() => {
+  if (gameTurn.value === 1) {
+    return player1;
+  } else {
+    return player2;
+  }
+});
+
+const stateToShow = computed(() => {
+  switch (gameState.value) {
+    case 'DesicionState()':
+      return DesicionState;
+    case 'FightingState()':
+      return FightingState;
+    case 'SwitchPokemonState()':
+      return SwitchPokemonState;
+    default:
+      return DesicionState;
+  }
+});
+
+
+</script>
 <template>
   <div class="container">
     <div id="menu-field" class="mx-auto menu-field">
-      <!--
-            <div class="turn">
-                @if(turn == 1) {
-                    It's your turn @player1Name !
-                }
-                @if(turn == 2) {
-                    It's your turn @player2Name !
-                }
-            </div>
-            @if(gameState == "DesicionState()") {
-                @desicionState()
-            } else if(gameState == "FightingState()" && turn == 1) {
-            @fightingState(pokemon = pokemonPlayer1, isTurn = turn)
-            } else if(gameState == "FightingState()" && turn == 2) {
-            @fightingState(pokemon = pokemonPlayer2, isTurn = turn)
-            } else if(gameState == "SwitchPokemonState()" && turn == 1) {
-            @switchPokemonState(pokePack = pokePackPlayer1)
-            } else if(gameState == "SwitchPokemonState()" && turn == 2) {
-            @switchPokemonState(pokePack = pokePackPlayer2)
-            }
-            -->
+      <div class="turn">
+        It's your turn {{ currentPlayer.value.name }} !
+      </div>
+
+      <div class="menu-wrapper">
+        <component :is="stateToShow" :player="currentPlayer" />
+      </div>
     </div>
   </div>
 </template>

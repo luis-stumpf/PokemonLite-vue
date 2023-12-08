@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import axios from "axios";
 import CONSTANTS from '../constants';
 
@@ -22,6 +22,7 @@ export const useGameStore = defineStore('game', () => {
     currentPoke: 0
   });
   const gameTurn = ref(0);
+
 
   async function getData() {
       const response = await axios.get(`${CONSTANTS.serverUrl}/api/gameJson`)

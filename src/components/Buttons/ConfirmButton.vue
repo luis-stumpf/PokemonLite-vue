@@ -35,7 +35,6 @@ export default {
     width: 27vh;
     background-image: url("@/assets/images/confirmButton.png");
     background-size: cover;
-    font-family: 'Pokemon Fire Red', sans-serif;
     color: white;
     border: none;
     background-color: transparent;
