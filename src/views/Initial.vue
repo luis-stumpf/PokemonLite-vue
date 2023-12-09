@@ -24,6 +24,6 @@ const isInitPlayerState = computed(() => {
 
 
 <template>
-  <PlayerNamesModule v-if="isInitPlayerState()" />
-  <PlayerPokemonsModule v-if="isInitPlayerPokemonState()" />
+  <PlayerNamesModule v-if="isInitPlayerState"/>
+  <PlayerPokemonsModule v-if="isInitPlayerPokemonState" />
 </template>

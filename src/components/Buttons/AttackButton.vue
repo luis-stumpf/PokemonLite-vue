@@ -4,6 +4,7 @@ import { computed } from 'vue';
 const props = defineProps({
   attack: Object,
   onClickHandler: Function,
+  move: Number,
 })
 
 const styleType = computed(() => {
@@ -17,7 +18,7 @@ const styleType = computed(() => {
 </script>
 
 <template>
-  <button onclick="" class="attack-button button-style fight-button small">
+  <button @click="onClickHandler(move)" class="attack-button button-style fight-button small">
     {{ attack.name }}
   </button>
 </template>
