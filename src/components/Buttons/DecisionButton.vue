@@ -2,7 +2,8 @@
 import { computed } from 'vue';
 
 const props = defineProps({
-  attack: Object,
+  buttonType: String,
+  text: String,
   onClickHandler: Function,
 })
 
@@ -14,10 +15,10 @@ const styleType = computed(() => {
   }
   return '';
 });
-</script>
 
+</script>
 <template>
-  <button onclick="" class="attack-button button-style fight-button small">
-    {{ attack.name }}
+  <button @click="onClickHandler(text)" :class="`button-style ${styleType}`">
+    {{ text }}
   </button>
 </template>

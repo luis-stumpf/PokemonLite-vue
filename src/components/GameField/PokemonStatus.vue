@@ -7,7 +7,11 @@ const props = defineProps({
 })
 
 const healthBarWidth = computed(() => {
-  return parseInt(pokemon.hp / pokemon.maxHp * 100 * 100);
+  return parseInt(props.pokemon.hp / props.pokemon.maxHp * 100 * 100);
+});
+
+const healthOf = computed(() => {
+  return `${props.pokemon.hp} / ${props.pokemon.maxHp} `
 });
 
 </script>
@@ -21,6 +25,6 @@ const healthBarWidth = computed(() => {
       <div id="bar-p-1" class="pokemon-health-bar" style="`width: ${healthBarWidth}`">
       </div>
     </div>
-    (pokemon.hp + "/" + pokemon.pType.hp)
+    {{ healthOf }}
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGameStore } from '@/stores/game';
 import PlayerNamesModule from '@/components/modules/PlayersNames.module.vue';
@@ -12,13 +12,13 @@ onMounted(async () => {
   await getGameState();
 });
 
-const isInitPlayerPokemonState = () => {
+const isInitPlayerPokemonState = computed(() => {
   return gameState.value === 'InitPlayerPokemonState()';
-};
+});
 
-const isInitPlayerState = () => {
+const isInitPlayerState = computed(() => {
   return gameState.value === 'InitState()';
-};
+});
 
 </script>
 

@@ -5,12 +5,15 @@ import { onMounted } from 'vue';
 
 import { storeToRefs } from 'pinia';
 import { useGameStore } from '@/stores/game';
+import { usePokemonsStore } from '@/stores/pokemons';
 
 const { getData } = useGameStore();
+const { getPokemonsData } = usePokemonsStore();
 const { gameState, player1, player2, gameTurn } = storeToRefs(useGameStore());
 
 onMounted(async () => {
   await getData();
+  await getPokemonsData();
 });
 
 </script>

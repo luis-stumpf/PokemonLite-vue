@@ -3,7 +3,7 @@ import { computed, onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 
 
-import DesicionState from '@/components/GameMenu/DesicionState.vue';
+import DecisionState from '@/components/GameMenu/DecisionState.vue';
 import FightingState from '@/components/GameMenu/FightingState.vue';
 import SwitchPokemonState from '@/components/GameMenu/SwitchPokemonState.vue';
 import { useGameStore } from '@/stores/game';
@@ -21,13 +21,13 @@ const currentPlayer = computed(() => {
 const stateToShow = computed(() => {
   switch (gameState.value) {
     case 'DesicionState()':
-      return DesicionState;
+      return DecisionState;
     case 'FightingState()':
       return FightingState;
     case 'SwitchPokemonState()':
       return SwitchPokemonState;
     default:
-      return DesicionState;
+      return DecisionState;
   }
 });
 

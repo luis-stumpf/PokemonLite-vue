@@ -28,10 +28,6 @@ export default {
       console.log('updatedInput', updatedInput);
       this.$emit('change', updatedInput)
     },
-    handleSubmitForm() {
-      // Handle form submission logic, e.g., make an API request
-      console.log('Form submitted with data:', this.playerPokemonsFormData);
-    },
   },
 }
 </script>
