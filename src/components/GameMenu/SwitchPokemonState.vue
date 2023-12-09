@@ -1,14 +1,29 @@
-<template>
-  <!--
-    @for((pokemon, index) <- pokePack.contents.zipWithIndex) {
-        <button onclick="onSwitch(@index)" class="pokemon-button small">
-            <img class="img-fluid" src="@routes.Assets.versioned("images/pokemons/" + pokemon.get.pType.name +"Front.gif")" style="width: 10vh;" alt="">
-            @pokemon.get.pType.name
-            <br>
-            HP: @pokemon.get.hp
-        </button>
-    }
+<script setup>
 
-  -->
-  test
+import axios from 'axios';
+import { computed } from 'vue';
+import { defineProps } from 'vue';
+import { storeToRefs } from 'pinia';
+
+import CONSTANTS from '@/constants';
+
+import SwitchPokemonButton from '@/components/Buttons/SwitchPokemonButton.vue';
+import { usePokemonsStore } from '@/stores/pokemons';
+
+const props = defineProps({
+  player: Object,
+  isTurn: Boolean,
+})
+
+const onClickHandler = (move) => {
+  axios.post(`${CONSTANTS.serverUrl}/api/switch`, {
+    move,
+  })
+}
+
+</script>
+
+<template>
+  <SwitchPokemonButton v-for="(pokemon, index) in props.player.value.pokemons.contents" :pokemon="pokemon" :key="pokemon.pType.name"
+    :onClickHandler="onClickHandler" :move="(index + 1)" />
 </template>
