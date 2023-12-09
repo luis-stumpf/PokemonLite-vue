@@ -23,10 +23,38 @@ export const useGameStore = defineStore('game', () => {
   });
   const gameTurn = ref(0);
 
+  const attackAnimation = ref({
+    animationType: "",
+    animationOn: 0
+  });
+
+  function showAttackAnimation(pokemonType) {
+    let animationType = "punch"
+    let animationOn = 0
+
+    if (pokemonType === "Feuer") {
+      animationType = "fire";
+    } else if (pokemonType === "Wasser") {
+      animationType = "bubbles";
+    }
+
+    if (gameTurn.value === 1) {
+      animationOn = 2;
+    } else {
+      animationOn = 1;
+    }
+
+    // Set the attackAnimation to the selected attack
+    attackAnimation.value = {animationType, animationOn};
+
+    // After 2500ms, reset attackAnimation to null
+    setTimeout(() => {
+      attackAnimation.value = {animationType: "", animationOn: 0};
+    }, 2500);
+  };
 
   async function getData() {
     const response = await axios.get(`${CONSTANTS.serverUrl}/api/gameJson`)
-    console.log(response.data);
     gameState.value = response.data.state.stateVal;
     player1.value = response.data.player1;
     player2.value = response.data.player2;
@@ -65,5 +93,5 @@ export const useGameStore = defineStore('game', () => {
     };
   });
 
-  return { gameState, player1, player2, gameTurn, getData, getGameState };
+  return { gameState, player1, player2, gameTurn, getData, getGameState, showAttackAnimation, attackAnimation };
 });

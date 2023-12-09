@@ -9,7 +9,6 @@ export const usePokemonsStore = defineStore('pokemons', () => {
 
 
   async function getPokemonsData() {
-      console.log(pokemons.value)
       const response = await axios.get(`${CONSTANTS.serverUrl}/api/allPokemonsJson`)
       pokemons.value = response.data;
   }

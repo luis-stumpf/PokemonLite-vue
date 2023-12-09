@@ -1,12 +1,14 @@
 import {createRouter, createWebHistory} from "vue-router";
-import Home from "../views/Home.vue";
+import axios from 'axios';
+import CONSTANTS from '@/constants';
+import Home from "@/views/Home.vue";
 
 const router = createRouter({
   history: createWebHistory('/'),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
     },
     {
@@ -23,7 +25,16 @@ const router = createRouter({
       path: '/rules',
       name: 'Rules',
       component: () => import('../views/Rules.vue')
-    }
+    },
+    {
+      path: '/restart',
+      name: 'Restart',
+      // Implement a method or action to reset the state and navigate to the initial route
+      beforeEnter: (to, from, next) => {
+        axios.get(`${CONSTANTS.serverUrl}/restart`)
+        next('/');
+      }
+    },
   ]
 })
 

@@ -9,6 +9,9 @@ import CONSTANTS from '@/constants';
 
 import AttackButton from '@/components/Buttons/AttackButton.vue';
 import { usePokemonsStore } from '@/stores/pokemons';
+import { useGameStore } from '@/stores/game';
+
+const { showAttackAnimation } = useGameStore();
 
 const { pokemons } = storeToRefs(usePokemonsStore());
 
@@ -26,6 +29,7 @@ const currentPokemonAttacks = computed(() => {
 });
 
 const onClickHandler = (move) => {
+  showAttackAnimation(pokemons.value.find(p => p.name === currentPokemon.value.pType).pokemonArt)
   axios.post(`${CONSTANTS.serverUrl}/api/fighting`, {
     move,
   })

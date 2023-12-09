@@ -1,37 +1,30 @@
 <script setup>
 
+import { storeToRefs } from 'pinia';
+import { useGameStore } from '@/stores/game';
+import { computed, toRef, toRefs } from 'vue';
+
 const props = defineProps({
   pokemon: Object,
-  side: String
+  side: String,
+  playerNr: String,
 })
 
+const { attackAnimation } = storeToRefs(useGameStore());
+
+const gifToShow = computed(() => {
+  if (attackAnimation.value.animationOn === parseInt(props.playerNr)) return true
+  return false
+})
+
+const attackAnimationType = computed(() => {
+  return attackAnimation.value.animationType
+})
 </script>
+
 <template>
-<img
-        class="img-fluid"
-        id="bubbles2"
-        src="@/assets/images/attackGifs/bubbles.gif"
-        alt="pokemon front"
-        style="width: 40%; margin-left: 10%; margin-top: 10%; object-fit: contain; display: none; z-index: 2"
->
-<img
-        class="img-fluid"
-        id="fire2"
-        src="@/assets/images/attackGifs/fire.gif"
-        alt="pokemon front"
-        style="width: 40%; margin-left: 10%; margin-top: 10%; object-fit: contain; display: none; z-index: 2"
->
-<img
-        class="img-fluid"
-        id="punch2"
-        src="@/assets/images/attackGifs/punch.gif"
-        alt="pokemon front"
-        style="width: 40%; margin-left: 10%; margin-top: 10%; object-fit: contain; display: none; z-index: 2"
->
-<img
-        class="img-fluid"
-        :src="`/src/assets/images/pokemons/${pokemon.pType}${side}.gif`"
-        alt="pokemon front"
-        style="width: 40%; margin-left: 10%; margin-top: 10%; object-fit: contain"
->
+  <img v-if="gifToShow" class="img-fluid" :src="`src/assets/images/attackGifs/${attackAnimationType}.gif`"
+    alt="pokemon front" style="width: 40%; margin-left: 10%; object-fit: contain; z-index: 2">
+  <img class="img-fluid" :src="`/src/assets/images/pokemons/${pokemon.pType}${side}.gif`" alt="pokemon front"
+    style="width: 40%; margin-left: 10%;  object-fit: contain">
 </template>
