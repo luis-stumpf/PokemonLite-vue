@@ -1,3 +1,22 @@
+<script setup>
+
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['form-submit']);
+
+const submitForm = () => {
+  emit('form-submit');
+}
+
+</script>
+
 <template>
   <div class="confirmButtonContainer">
     <button @click="submitForm" class="confirmButton">
@@ -8,24 +27,6 @@
     <span class="confirm-shadow"></span>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'ConfirmButton',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-  },
-  emits: ['form-submit'],
-  methods: {
-    submitForm() {
-      this.$emit('form-submit');
-    },
-  },
-}
-</script>
 
 <style scoped>
 

@@ -1,3 +1,23 @@
+<script setup>
+import { ref, watch } from 'vue';
+
+
+const props = defineProps({
+  user: {
+    type: String,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['input-change']);
+
+const username = ref('');
+
+watch(username, (newUsername) => {
+  emit('input-change', { [props.user]: newUsername });
+});
+
+</script>
 <template>
         <div class="playerName1">
           <label class="playerName-label" for="player1Name">PLAYER 1 ?</label>
@@ -5,30 +25,6 @@
           <span class="cursor" id="cursor1">_</span>
         </div>
 </template>
-
-<script>
-
-export default {
-  name: 'PlayerNamesInput',
-  emits: ['input-change'],
-  props: {
-    user: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      username: '',
-    }
-  },
-  watch: {
-    username(newUsername) {
-      this.$emit('input-change', { [this.user]: newUsername });
-    },
-  },
-}
-</script>
 
 <style scoped>
 

@@ -1,3 +1,15 @@
+<script setup>
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+
+const startGame = () => {
+    router.push('/init');
+};
+
+</script>
+
 <template>
   <div class="container-fluid">
     <div class="row">
@@ -12,7 +24,7 @@
     </div>
     <div class="row">
       <div class="col-11 col-sm-12 col-md-12 col-lg-12 text-center">
-          <button id="startButton" class="pokeballButton">
+          <button id="startButton" class="pokeballButton" @click="startGame">
               <img class="pokeballImage img-fluid" src="@/assets/images/pokeball.png" alt="">
               <span class="ball-shadow"></span>
               <span class="startText"> Start!</span>
@@ -22,16 +34,6 @@
   </div>
 
 </template>
-
-<script>
-export default {
-  name: 'Home',
-  components: {
-  },
-  computed: {
-  },
-}
-</script>
 
 <style scoped>
 

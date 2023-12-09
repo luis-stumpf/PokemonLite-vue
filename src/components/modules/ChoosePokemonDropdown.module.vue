@@ -1,3 +1,22 @@
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+import PokemonSelector from '@/components/PokemonSelector.vue'
+
+const props = defineProps({
+  allPokemons: {
+    type: Array,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['change']);
+
+const emitHandleInputChange = (updatedInput) => {
+  emit('change', updatedInput)
+}
+
+</script>
+
 <template>
     <div class="row">
       <div class="pokemonSelectionContainer">
@@ -6,31 +25,6 @@
       </div>
     </div>
 </template>
-
-<script>
-import PokemonSelector from '@/components/PokemonSelector.vue'
-
-export default {
-  name: 'ChoosePokemonDropdownModule',
-  emits: ['change'],
-  props: {
-    allPokemons: {
-      type: Array,
-      required: true,
-    },
-  },
-  components: {
-    PokemonSelector,
-  },
-  methods: {
-    emitHandleInputChange(updatedInput) {
-      // Merge the updated input into formData
-      console.log('updatedInput', updatedInput);
-      this.$emit('change', updatedInput)
-    },
-  },
-}
-</script>
 
 <style scoped>
 

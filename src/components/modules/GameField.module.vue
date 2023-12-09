@@ -16,19 +16,17 @@ const props = defineProps({
     <div class="overlay-content">
       <div class="row h-50">
         <div id="player-2-status" class="col">
-          <!-- @playerStatus(pokemon = pokemonPlayer2, player = 2) -->
           <PokemonStatus :pokemon="player1Data.pokemons.contents[player1Data.currentPoke]"/>
         </div>
         <div id="player-2-pokemon" class="col position-relative">
-          <Pokemon :pokemon="player1Data.pokemons.contents[player1Data.currentPoke]"/>
+          <Pokemon :pokemon="player1Data.pokemons.contents[player1Data.currentPoke]" side="Front"/>
         </div>
       </div>
       <div class="row h-50">
         <div id="player-1-pokemon" class="col position-relative">
-          <Pokemon :pokemon="player2Data.pokemons.contents[player2Data.currentPoke]"/>
+          <Pokemon :pokemon="player2Data.pokemons.contents[player2Data.currentPoke]" side="Back"/>
         </div>
         <div id="player-1-status" class="col">
-          <!-- @playerStatus(pokemon = pokemonPlayer1, player = 1) -->
           <PokemonStatus :pokemon="player2Data.pokemons.contents[player2Data.currentPoke]"/>
         </div>
       </div>

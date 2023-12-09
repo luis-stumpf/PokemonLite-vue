@@ -1,3 +1,37 @@
+<script setup>
+
+import { useRouter } from 'vue-router';
+import axios from 'axios';
+
+import CONSTANTS from '@/constants';
+import ChooseTitle from '@/components/ChooseTitle.vue'
+import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
+import PokemonShowCase from '@/components/PokemonShowCase.vue';
+import ChoosePokemonDropdownModule from '@/components/modules/ChoosePokemonDropdown.module.vue';
+import { ref } from 'vue';
+
+const router = useRouter();
+
+const allPokemons = CONSTANTS.allPokemons;
+const playerPokemonsFormData = ref({
+        playerPokemons1: {},
+        playerPokemons2: {},
+      });
+
+const handleInputChange = (updatedInput) => {
+      playerPokemonsFormData.value = { ...playerPokemonsFormData.value, ...updatedInput };
+    }
+
+const handleSubmitForm = () => {
+      axios.post(`${CONSTANTS.serverUrl}/api/initPlayerPokemons`, {
+        playerPokemons1: Object.values(playerPokemonsFormData.value.playerPokemons1),
+        playerPokemons2: Object.values(playerPokemonsFormData.value.playerPokemons2),
+      })
+      router.push('/game');
+    }
+
+</script>
+
 <template>
   <div class="container-fluid">
     <ChooseTitle title="CHOOSE YOUR POKEMONS" />
@@ -6,49 +40,3 @@
     <ConfirmButton @form-submit="handleSubmitForm" title="CONFIRM" />
   </div>
 </template>
-
-<script>
-
-import ChooseTitle from '@/components/ChooseTitle.vue'
-import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
-import PokemonShowCase from '@/components/PokemonShowCase.vue';
-import ChoosePokemonDropdownModule from '@/components/modules/ChoosePokemonDropdown.module.vue';
-import CONSTANTS from '@/constants';
-import axios from 'axios';
-
-export default {
-  name: 'PlayerPokemonsModule',
-  components: {
-    ChooseTitle,
-    ConfirmButton,
-    PokemonShowCase,
-    ChoosePokemonDropdownModule,
-  },
-  data() {
-    return {
-      pageTitle: "Choose your Pokemons",
-      allPokemons: CONSTANTS.allPokemons,
-      pageTitle: "Choose your Names",
-      playerPokemonsFormData: {
-        playerPokemons1: {},
-        playerPokemons2: {},
-      },
-    }
-  },
-  methods: {
-    handleInputChange(updatedInput) {
-      // Merge the updated input into formData
-      this.playerPokemonsFormData = { ...this.playerPokemonsFormData, ...updatedInput };
-    },
-    handleSubmitForm() {
-      // Handle form submission logic, e.g., make an API request
-      axios.post(`${CONSTANTS.serverUrl}/api/initPlayerPokemons`, {
-        playerPokemons1: Object.values(this.playerPokemonsFormData.playerPokemons1),
-        playerPokemons2: Object.values(this.playerPokemonsFormData.playerPokemons2),
-      })
-    },
-  },
-  computed: {
-  },
-}
-</script>

@@ -2,6 +2,7 @@
 
 const props = defineProps({
   pokemon: Object,
+  side: String
 })
 
 </script>
@@ -29,7 +30,7 @@ const props = defineProps({
 >
 <img
         class="img-fluid"
-        :src="`/src/assets/images/pokemons/${pokemon.pType}Front.gif`"
+        :src="`/src/assets/images/pokemons/${pokemon.pType}${side}.gif`"
         alt="pokemon front"
         style="width: 40%; margin-left: 10%; margin-top: 10%; object-fit: contain"
 >

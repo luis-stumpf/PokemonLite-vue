@@ -46,8 +46,9 @@ export const useGameStore = defineStore('game', () => {
   });
 
   socket.addEventListener('message', (event) => {
-    getData();
     getGameState();
+    if (gameState.value === "InitState()" || gameState.value === "InitPlayerPokemonState()") return;
+    getData();
   });
 
   socket.addEventListener('close', (event) => {

@@ -1,9 +1,34 @@
+<script setup>
+
+import axios from 'axios';
+import CONSTANTS from '@/constants';
+
+import ChooseTitle from '@/components/ChooseTitle.vue'
+import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
+import PlayerNamesInput from '@/components/PlayerNamesInput.vue';
+import { ref } from 'vue';
+
+const namesFormData = ref({
+  playerName1: "",
+  playerName2: "",
+});
+
+const handleInputChange = (updatedInput) => {
+  namesFormData.value = { ...namesFormData.value, ...updatedInput };
+}
+const handleSubmitForm = () => {
+  axios.post(`${CONSTANTS.serverUrl}/api/initPlayerNames`, namesFormData.value)
+}
+
+</script>
+
+
 <template>
   <div class="container-fluid">
     <ChooseTitle title="CHOOSE YOUR NAMES" />
     <div class="row">
       <div class="playerNamesContainer">
-        <PlayerNamesInput @input-change="handleInputChange" user="playerName1"/>
+        <PlayerNamesInput @input-change="handleInputChange" user="playerName1" />
         <br>
         <PlayerNamesInput @input-change="handleInputChange" user="playerName2" />
       </div>
@@ -11,43 +36,6 @@
     </div>
   </div>
 </template>
-
-<script>
-
-import ChooseTitle from '@/components/ChooseTitle.vue'
-import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
-import PlayerNamesInput from '@/components/PlayerNamesInput.vue';
-import axios from 'axios';
-import CONSTANTS from '@/constants';
-
-export default {
-  name: 'PlayerNamesModule',
-  components: {
-    ChooseTitle,
-    ConfirmButton,
-    PlayerNamesInput,
-  },
-  data() {
-    return {
-      pageTitle: "Choose your Names",
-      namesFormData: {
-        playerName1: "",
-        playerName2: "",
-      },
-    }
-  },
-  methods: {
-    handleInputChange(updatedInput) {
-      // Merge the updated input into formData
-      this.namesFormData = { ...this.namesFormData, ...updatedInput };
-    },
-    handleSubmitForm() {
-      // Handle form submission logic, e.g., make an API request
-      axios.post(`${CONSTANTS.serverUrl}/api/initPlayerNames`, this.namesFormData)
-    },
-  },
-}
-</script>
 
 <style scoped>
 .playerNamesContainer {

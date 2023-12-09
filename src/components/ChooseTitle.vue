@@ -1,3 +1,14 @@
+<script setup>
+
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+});
+
+</script>
+
 <template>
     <div class="row">
       <div class="chooseTitleContainer">
@@ -5,17 +16,6 @@
       </div>
     </div>
 </template>
-
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-  },
-};
-</script>
 
 <style scoped>
 

@@ -1,3 +1,15 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  allPokemons: {
+    type: Array,
+    required: true,
+  },
+});
+
+</script>
+
 <template>
   <div class="row">
     <div class="showcase-box">
@@ -11,17 +23,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    allPokemons: {
-      type: Array,
-      required: true,
-    },
-  },
-};
-</script>
 
 <style scoped>
 .showcase-box {

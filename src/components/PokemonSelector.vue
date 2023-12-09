@@ -1,3 +1,31 @@
+<script setup>
+import { defineProps, defineEmits, watch, ref } from 'vue';
+
+const props = defineProps({
+  playerName: {
+    type: String,
+    required: true,
+  },
+  playerPokemons: {
+    type: String,
+    required: true,
+  },
+  allPokemons: {
+    type: Array,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['change']);
+
+const selectedPokemons = ref([]);
+
+watch(selectedPokemons, () => {
+  emit('change', { [props.playerPokemons]: selectedPokemons.value });
+}, { deep: true });
+
+</script>
+
 <template>
   <div class="pokemonSelection">
     <div class="pokemonLabel">
@@ -12,40 +40,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'PokemonSelector',
-  emits: ['change'],
-  props: {
-    playerName: {
-      type: String,
-      required: true,
-    },
-    playerPokemons: {
-      type: String,
-      required: true,
-    },
-    allPokemons: {
-      type: Array,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      selectedPokemons: [],
-    }
-  },
-  watch: {
-    selectedPokemons: {
-      handler() {
-        this.$emit('change', { [this.playerPokemons]: this.selectedPokemons });
-      },
-      deep: true,
-    },
-  },
-}
-</script>
 
 <style scoped>
 
