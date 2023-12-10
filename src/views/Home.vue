@@ -38,15 +38,15 @@ const startGame = () => {
 <style scoped>
 
 .titleImage {
-  width: 77vh;
-  margin-top: 3vh;
+  width: 39rem;
+  margin-top: 2rem;
 }
 
 .ball-shadow {
-    width: 17vh;
-    height: 7vh;
+    width: 8.1rem;
+    height: 3.5rem;
     z-index: -99;
-    margin-top: -4.7vh;
+    margin-top: -2.1rem;
     background: radial-gradient(ellipse at center, #4e7844 10%, transparent 75%);
 }
 
@@ -54,13 +54,12 @@ const startGame = () => {
     background: transparent;
     border: none;
     cursor: pointer;
-    margin-top: 2vh;
-    overflow: hidden;
+    margin-top: 1rem;
     position: relative;
 }
 
 .bookImage {
-    width: 14vh;
+    width: 7rem;
     transition: filter 0.3s;
 }
 
@@ -69,23 +68,23 @@ const startGame = () => {
 }
 
 .pokeballButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: inline-grid;
-    margin-top: 20em;
-    overflow: hidden;
-    position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-grid;
+  margin-top: 20em;
+  overflow: hidden;
+  position: relative;
 }
 
 .pokeballImage {
-    transition: filter 0.3s;
-    width: 17vh;
+  transition: filter 0.3s;
+  width: 8rem;
 }
 
 .pokeballImage:hover {
-    animation: wiggle 1s ease infinite;
-    filter: brightness(1.2);
+  animation: wiggle 1s ease infinite;
+  filter: brightness(1.2);
 }
 
 @keyframes wiggle {
@@ -119,21 +118,21 @@ const startGame = () => {
 }
 
 .pokeballButton:hover + .startText {
-    filter: brightness(1.2);
+  filter: brightness(1.2);
 }
 
 .startText {
-    color: #fdc905;
-    font-family: 'Press Start 2P', sans-serif;
-    font-size: 2rem;
-    letter-spacing: 3px;
-    text-shadow:
-            -1.5px -1.5px 0 #395ea9,
-            1.5px -1.5px 0 #395ea9,
-            -1.5px  1.5px 0 #395ea9,
-            1.5px  1.5px 0 #395ea9;
-    text-transform: uppercase;
-    transition: filter 0.3s;
+  color: #fdc905;
+  font-size: 2.6em;
+  letter-spacing: 3px;
+  margin: -0.8em 0 0 0.05em;
+  text-shadow:
+          -1.5px -1.5px 0 #395ea9,
+          1.5px -1.5px 0 #395ea9,
+          -1.5px  1.5px 0 #395ea9,
+          1.5px  1.5px 0 #395ea9;
+  text-transform: uppercase;
+  transition: filter 0.3s;
 }
 
 </style>

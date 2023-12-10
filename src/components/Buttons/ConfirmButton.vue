@@ -31,27 +31,23 @@ const submitForm = () => {
 <style scoped>
 
 .confirmButton {
-    padding-bottom: 2.5vh;
-    font-size: 7vh;
-    width: 27vh;
-    background-image: url("@/assets/images/confirmButton.png");
-    background-size: cover;
-    color: white;
-    border: none;
-    background-color: transparent;
-    height: 12vh;
-    transition: filter 0.3s;
-    text-shadow:
-            -1.5px -1.5px 0 #558c87,
-            1.5px -1.5px 0 #558c87,
-            -1.5px  1.5px 0 #558c87,
-            1.5px  1.5px 0 #558c87;
+  background-color: transparent;
+  background-image: url("@/assets/images/confirmButton.png");
+  background-size: cover;
+  border: none;
+  padding-bottom: 1em;
+  color: white;
+  font-size: 3.25em;
+  height: 1.83em;
+  transition: filter 0.3s;
+  text-shadow: -1.5px -1.5px 0 #558c87, 1.5px -1.5px 0 #558c87, -1.5px 1.5px 0 #558c87, 1.5px 1.5px 0 #558c87;
+  width: 4.1em;
 }
 
 .confirmButtonContainer {
     display: flex;
     justify-content: center;
-    padding-top: 20vh;
+    padding-top: 1.5rem;
 }
 
 .confirmButton:hover {
@@ -59,11 +55,11 @@ const submitForm = () => {
 }
 
 .confirm-shadow {
-    width: 33vh !important;
-    height: 17vh;
-    z-index: -99;
-    margin-top: -12.5vh !important;
-    background: radial-gradient(ellipse at center, #4e7844 19%, transparent 67%);
+  width: 16em !important;
+  height: 9em;
+  z-index: -99;
+  margin-top: -6.65em !important;
+  background: radial-gradient(ellipse at center, #4e7844 19%, transparent 67%);
 }
 
 </style>

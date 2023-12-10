@@ -43,31 +43,11 @@ watch(selectedPokemons, () => {
 
 <style scoped>
 
-.img-wrapper {
-  align-items: center;
-  border: 0.5vh solid dimgray;
-  background-color: #dddddd;
-  border-radius: 2vh;
-  color: #626262;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Pokemon Fire Red', sans-serif;
-  font-size: 3vh;
-  justify-content: space-around;
-  padding-left: 1vh;
-  padding-right: 1vh;
-  text-align: center;
-  text-shadow: 2px 2px rgba(210, 212, 202, 100);
-  text-transform: uppercase;
-}
-
 option {
-  font-family: 'Pokemon Fire Red', sans-serif;
-  font-size: 2.3vh;
+  font-size: 0.9em;
   color: #626262;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: 2px 2px rgba(210, 212, 202, 100);
 }
 
 option:hover {
@@ -75,43 +55,36 @@ option:hover {
   color: white;
 }
 
-.pokemon-image {
-  width: 22vh;
-}
-
 .pokemonLabel {
-  font-family: 'Pokemon Fire Red', sans-serif;
-  font-size: 4vh;
-  margin-top: 1vh;
-  margin-bottom: -1vh;
+  font-size: 2em;
+  margin-top: 0.2em;
+  margin-bottom: -0.1em;
   text-shadow: 2px 2px rgba(210, 212, 202, 100);
   text-transform: uppercase;
 }
 
 .pokemonSelection {
   align-items: center;
-  background-image: url("@/assets/images/pokemonSelection.png");
+  background-image: url("@/assets/images/PlayerNamesTitle.png");
   background-size: cover;
   color: #626262;
   display: flex;
   flex-direction: column;
-  height: 13.8vh;
-  margin-left: 4vh;
-  margin-right: 4vh;
-  margin-top: 1vh;
-  width: 52.2vh;
+  height: 6.75rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+  width: 25.6rem;
 }
 
-
 select {
-  border-radius: 1vh;
+  border-radius: 0.3em;
   color: #626262;
-  font-family: 'Pokemon Fire Red', sans-serif !important;
-  font-size: 3.1vh !important;
-  height: 4.5vh;
+  font-size: 1.7em !important;
+  height: 1.3em;
   text-transform: uppercase !important;
-  text-shadow: 2px 2px rgba(210, 212, 202, 100);
-  width: 15vh;
+  width: 4.5em;
+  margin: 0 0.1em 0 0.1em;
 }
 
 </style>

@@ -20,24 +20,23 @@ const props = defineProps({
 <style scoped>
 
 .chooseTitle {
-    background-image: url("@/assets/images/PlayerNamesTitle.png");
-    background-size: cover;
-    width: 56vh;
-    height: 14.8vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url("@/assets/images/PlayerNamesTitle.png");
+  background-size: cover;
+  width: 27.6rem;
+  height: 7.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chooseTitleContainer {
-    color: #626262;
-    display: flex;
-    font-family: 'Pokemon Fire Red', sans-serif;
-    font-size: 7vh;
-    justify-content: center;
-    padding-top: 5vh;
-    padding-bottom: 11vh;
-    text-shadow: 2px 2px rgba(210, 212, 202, 100);
+  color: #626262;
+  display: flex;
+  font-size: 3.5rem;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-shadow: 2px 2px rgba(210, 212, 202, 100);
 }
 
 </style>

@@ -28,23 +28,22 @@ const props = defineProps({
 .showcase-box {
   display: flex;
   justify-content: center;
-  gap: 2vh;
-  margin-bottom: 2vh;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .img-wrapper {
   align-items: center;
-  border: 0.5vh solid dimgray;
+  border: 2px solid dimgray;
   background-color: #dddddd;
-  border-radius: 2vh;
+  border-radius: 15px;
   color: #626262;
   display: flex;
   flex-direction: column;
-  font-family: 'Pokemon Fire Red', sans-serif;
-  font-size: 3vh;
+  font-size: 1.5rem;
   justify-content: space-around;
-  padding-left: 1vh;
-  padding-right: 1vh;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   text-align: center;
   text-shadow: 2px 2px rgba(210, 212, 202, 100);
   text-transform: uppercase;

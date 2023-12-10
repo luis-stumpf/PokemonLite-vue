@@ -3,23 +3,24 @@
 @import url(./chat.css);
 
 @font-face {
+  font-display: auto;
   font-family: 'Pokemon Fire Red';
-  src: url('./fonts/pokemon_fire_red.woff2') format('woff2');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/pokemon_fire_red.woff2') format('woff2');
 }
 body {
-  font-family: 'Pokemon Fire Red', sans-serif;
-  color: #fff;
   background-color: #000;
   background-image: url('./images/background.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  color: #fff;
+  font-family: 'Pokemon Fire Red', sans-serif !important;
   margin: 0;
-  padding: 0;
   overflow-x: hidden;
+  padding: 0;
 }
 
 
