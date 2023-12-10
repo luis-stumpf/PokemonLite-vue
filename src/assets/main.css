@@ -1,5 +1,7 @@
 @import url(./gameField.css);
 
+@import url(./chat.css);
+
 @font-face {
   font-family: 'Pokemon Fire Red';
   src: url('./fonts/pokemon_fire_red.woff2') format('woff2');

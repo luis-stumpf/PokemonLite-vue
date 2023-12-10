@@ -4,6 +4,9 @@ import axios from "axios";
 import CONSTANTS from '../constants';
 
 export const useGameStore = defineStore('game', () => {
+
+  const socket = new WebSocket(CONSTANTS.websocketUrl);
+
   const gameState = ref("InitState()");
   const player1 = ref({
     name: "",
@@ -27,6 +30,18 @@ export const useGameStore = defineStore('game', () => {
     animationType: "",
     animationOn: 0
   });
+
+  const chatOpen = ref(false);
+
+  const chatMessages = ref([]);
+
+  function toggleChat() {
+    chatOpen.value = !chatOpen.value;
+  }
+
+  function sendChatMessage(message) {
+    socket.send(message);
+  }
 
   function showAttackAnimation(pokemonType) {
     let animationType = "punch"
@@ -66,14 +81,19 @@ export const useGameStore = defineStore('game', () => {
     gameState.value = response.data.stateVal;
   }
 
-  // Create a WebSocket connection to the server
-  const socket = new WebSocket(CONSTANTS.websocketUrl);
+  async function getChatMessages() {
+    const response = await axios.get(`${CONSTANTS.serverUrl}/api/getChatMessages`)
+    chatMessages.value = response.data;
+    console.log(chatMessages.value);
+  }
 
   socket.addEventListener('open', (event) => {
     console.log('WebSocket connection opened:', event);
   });
 
   socket.addEventListener('message', (event) => {
+    console.log('WebSocket message received:', event);
+    if (event.data === "new message") return getChatMessages();
     getGameState();
     if (gameState.value === "InitState()" || gameState.value === "InitPlayerPokemonState()") return;
     getData();
@@ -93,5 +113,5 @@ export const useGameStore = defineStore('game', () => {
     };
   });
 
-  return { gameState, player1, player2, gameTurn, getData, getGameState, showAttackAnimation, attackAnimation };
+  return { gameState, player1, player2, gameTurn, attackAnimation, chatOpen, chatMessages, toggleChat, getData, getGameState, showAttackAnimation, sendChatMessage };
 });

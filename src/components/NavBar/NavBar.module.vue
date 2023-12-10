@@ -1,6 +1,9 @@
 <script setup>
 import NavBarElement from '@/components/Navbar/NavBarElement.vue';
 
+import { useGameStore } from '@/stores/game';
+
+const { toggleChat } = useGameStore();
 </script>
 
 <template>
@@ -9,10 +12,8 @@ import NavBarElement from '@/components/Navbar/NavBarElement.vue';
       <ul class="navbar-nav">
         <NavBarElement name="Home" />
         <NavBarElement name="Rules" />
-        <!--
-          <NavBarElement name="Chat" />
-        -->
         <NavBarElement name="Restart" />
+        <button @click="toggleChat()">Chat</button>
       </ul>
     </div>
   </nav>
