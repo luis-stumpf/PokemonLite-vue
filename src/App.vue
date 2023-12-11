@@ -12,7 +12,6 @@ onBeforeMount(async () => {
 
 </script>
 
-{{ }}
 <template>
   <header>
     <NavBar />

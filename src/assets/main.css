@@ -23,4 +23,31 @@ body {
   padding: 0;
 }
 
+/* styles for bootstrap icons in here, since they are rendered outside scope of navbar component*/
+.bi-book::before {
+  vertical-align: -0.117em !important;
+}
+
+.bi-chat-dots::before {
+  vertical-align: -0.09em !important;
+  margin-right: 0.4em !important;
+  font-size: 0.6em !important;
+}
+
+.bi-gear::before {
+  vertical-align: -0.105em !important;
+}
+
+.bi-house::before {
+  vertical-align: -0.057em !important;
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0.1em !important;
+}
+
+.navbar-toggler {
+  padding: 0 !important;
+}
+
 

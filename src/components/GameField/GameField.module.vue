@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+
 import Pokemon from '@/components/GameField/Pokemon.vue';
 import PokemonStatus from '@/components/GameField/PokemonStatus.vue';
 
@@ -33,3 +33,14 @@ const props = defineProps({
     </div>
   </div>
 </template>
+
+<style scoped>
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 50%;
+  overflow: hidden;
+  border: 10px solid darkslategrey;
+  border-radius: 15px;
+}
+</style>

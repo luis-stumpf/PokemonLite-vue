@@ -2,11 +2,11 @@
 
 import axios from 'axios';
 import CONSTANTS from '@/constants';
+import { ref } from 'vue';
 
 import ChooseTitle from '@/components/ChooseTitle.vue'
 import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
 import PlayerNamesInput from '@/components/PlayerNamesInput.vue';
-import { ref } from 'vue';
 
 const namesFormData = ref({
   playerName1: "",
@@ -38,9 +38,12 @@ const handleSubmitForm = () => {
 </template>
 
 <style scoped>
+
 .playerNamesContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 9rem;
 }
+
 </style>

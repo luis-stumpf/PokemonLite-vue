@@ -10,41 +10,34 @@ const { toggleChat } = useGameStore();
   <nav class="custom-navbar navbar navbar-expand navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
+        <NavBarElement name="Settings"></NavBarElement>
         <NavBarElement name="Home" />
         <NavBarElement name="Rules" />
         <NavBarElement name="Restart" />
-        <button @click="toggleChat()">Chat</button>
+        <button class="chat-button" @click="toggleChat()">
+          <i class="bi bi-chat-dots"></i>
+          <span class="navBarFont">Chat</span>
+        </button>
       </ul>
     </div>
   </nav>
 </template>
 
 <style scoped>
-.custom-navbar {
-  background-color: rgba(193, 229, 252, 0.94);
-  height: 5.5%
-}
-
-.navBarFont {
-  font-family: 'Pokemon Fire Red', sans-serif;
-  font-size: 2rem;
-  margin-left: 20px;
-}
-
-.nav-link {
+.chat-button {
+  background: none;
+  border: none;
   color: #0d59be !important;
+  font-size: 1.72rem;
+  margin-left: 0.4rem;
 }
 
-.nav-link.active {
-  color: #ffffff !important;
-}
-
-.nav-link:hover {
+.chat-button:hover {
   color: #e7f7ff !important;
 }
 
-.navbar-toggler {
-  padding: 0 !important;
+.custom-navbar {
+  background-color: rgba(193, 229, 252, 0.94);
+  height: 3.3rem;
 }
-
 </style>

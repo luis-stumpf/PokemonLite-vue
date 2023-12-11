@@ -17,7 +17,7 @@ const props = defineProps({
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 
 .chooseTitle {
   background-image: url("@/assets/images/PlayerNamesTitle.png");

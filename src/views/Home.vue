@@ -124,7 +124,7 @@ const startGame = () => {
 .startText {
   color: #fdc905;
   font-size: 2.6em;
-  letter-spacing: 3px;
+  letter-spacing: 0.07em;
   margin: -0.8em 0 0 0.05em;
   text-shadow:
           -1.5px -1.5px 0 #395ea9,

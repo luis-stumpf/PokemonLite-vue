@@ -78,10 +78,10 @@ option:hover {
 }
 
 select {
+  border-style: solid !important;
   border-radius: 0.3em;
   color: #626262;
   font-size: 1.7em !important;
-  height: 1.3em;
   text-transform: uppercase !important;
   width: 4.5em;
   margin: 0 0.1em 0 0.1em;

@@ -17,12 +17,34 @@ onBeforeMount(async () => {
 });
 
 </script>
+
 <template>
   <main>
-    <div class="container">
-      <GameFieldModule :player1Data="player1" :player2Data="player2" />
-      <GameMenuModule />
+    <div class="row game-view">
+      <ChatModule v-if="chatOpen" :currentPlayerData="currentPlayer"/>
+      <div class="container-fluid">
+        <GameFieldModule :player1Data="player1" :player2Data="player2" />
+        <GameMenuModule />
+      </div>
     </div>
-    <ChatModule v-if="chatOpen" :currentPlayerData="currentPlayer"/>
   </main>
 </template>
+
+<style scoped>
+
+.container-fluid {
+  flex: 1;
+  resize: horizontal;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.game-view {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  margin: 1em 1em 0 1em;
+}
+
+</style>

@@ -2,13 +2,13 @@
 
 import { useRouter } from 'vue-router';
 import axios from 'axios';
-
 import CONSTANTS from '@/constants';
+import { ref } from 'vue';
+
 import ChooseTitle from '@/components/ChooseTitle.vue'
 import ConfirmButton from '@/components/Buttons/ConfirmButton.vue';
 import PokemonShowCase from '@/components/PokemonShowCase.vue';
 import ChoosePokemonDropdownModule from '@/components/modules/ChoosePokemonDropdown.module.vue';
-import { ref } from 'vue';
 
 const router = useRouter();
 
