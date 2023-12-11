@@ -9,7 +9,7 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => ['md-linedivider'].includes(tag),
+          isCustomElement: (tag) => ['v-list-item', 'v-list-item-content'].includes(tag),
         }
       }
     }),
