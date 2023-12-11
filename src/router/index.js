@@ -32,6 +32,9 @@ const router = createRouter({
       // Implement a method or action to reset the state and navigate to the initial route
       beforeEnter: (to, from, next) => {
         axios.get(`${CONSTANTS.serverUrl}/restart`)
+
+
+
         next('/');
       }
     },

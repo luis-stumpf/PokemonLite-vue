@@ -28,3 +28,15 @@ const attackAnimationType = computed(() => {
   <img class="img-fluid" :src="`/src/assets/images/pokemons/${pokemon.pType}${side}.gif`" alt="pokemon front"
     style="width: 40%; margin-left: 10%;  object-fit: contain">
 </template>
+
+<style scoped>
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container while maintaining its aspect ratio */
+}
+
+</style>

@@ -8,7 +8,8 @@ import { storeToRefs } from 'pinia';
 import CONSTANTS from '@/constants';
 
 import SwitchPokemonButton from '@/components/Buttons/SwitchPokemonButton.vue';
-import { usePokemonsStore } from '@/stores/pokemons';
+import { useGameStore } from '@/stores/game';
+
 
 const props = defineProps({
   player: Object,

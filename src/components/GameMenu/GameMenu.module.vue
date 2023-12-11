@@ -46,3 +46,34 @@ const stateToShow = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+
+.turn {
+  color: #626262;
+  font-family: 'Pokemon Fire Red', sans-serif;
+  font-size: 4vh;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px rgba(210, 212, 202, 100);
+}
+
+
+.menu-field {
+  background-color: beige;
+  border: 1vh solid darkslategrey;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 75% !important;
+  margin-top: 2% !important;
+  padding-bottom: 2%;
+}
+
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2vh;
+}
+
+</style>

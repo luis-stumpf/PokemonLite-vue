@@ -5,7 +5,6 @@ import CONSTANTS from '../constants';
 
 export const useGameStore = defineStore('game', () => {
 
-  const socket = new WebSocket(CONSTANTS.websocketUrl);
 
   const gameState = ref("InitState()");
   const player1 = ref({
@@ -30,6 +29,8 @@ export const useGameStore = defineStore('game', () => {
     animationType: "",
     animationOn: 0
   });
+
+  const switchAnimation = ref(false)
 
   const chatOpen = ref(false);
 
@@ -60,13 +61,21 @@ export const useGameStore = defineStore('game', () => {
     }
 
     // Set the attackAnimation to the selected attack
-    attackAnimation.value = {animationType, animationOn};
+    attackAnimation.value = { animationType, animationOn };
 
     // After 2500ms, reset attackAnimation to null
     setTimeout(() => {
-      attackAnimation.value = {animationType: "", animationOn: 0};
-    }, 2500);
+      attackAnimation.value = { animationType: "", animationOn: 0 };
+    }, 800);
   };
+
+  function showSwitchAnimation() {
+    switchAnimation.value = true;
+
+    setTimeout(() => {
+      switchAnimation.value = false;
+    }, 800);
+  }
 
   async function getData() {
     const response = await axios.get(`${CONSTANTS.serverUrl}/api/gameJson`)
@@ -83,35 +92,46 @@ export const useGameStore = defineStore('game', () => {
 
   async function getChatMessages() {
     const response = await axios.get(`${CONSTANTS.serverUrl}/api/getChatMessages`)
-    chatMessages.value = response.data;
+    chatMessages.value = response.data.reverse();
     console.log(chatMessages.value);
   }
 
-  socket.addEventListener('open', (event) => {
-    console.log('WebSocket connection opened:', event);
-  });
 
-  socket.addEventListener('message', (event) => {
-    console.log('WebSocket message received:', event);
-    if (event.data === "new message") return getChatMessages();
-    getGameState();
-    if (gameState.value === "InitState()" || gameState.value === "InitPlayerPokemonState()") return;
-    getData();
-  });
+  let socket;
 
-  socket.addEventListener('close', (event) => {
-    console.log('WebSocket connection closed:', event);
-  });
+  function openSocket() {
+    socket = new WebSocket(CONSTANTS.websocketUrl);
+    socket.addEventListener('open', (event) => {
+      console.log('WebSocket connection opened:', event);
+      socket
+      getData();
+      getGameState();
+      getChatMessages();
+    });
 
-  socket.addEventListener('error', (event) => {
-    console.error('WebSocket error:', event);
-  });
+    socket.addEventListener('message', (event) => {
+      console.log('WebSocket message received:', event);
+      if (event.data === "new message") return getChatMessages();
+      getGameState();
+      if (gameState.value === "InitState()" || gameState.value === "InitPlayerPokemonState()") return;
+      getData();
+    });
 
-  onMounted(() => {
-    return () => {
-      socket.close();
-    };
-  });
+    socket.addEventListener('close', (event) => {
+      console.log('WebSocket connection closed:', event);
+
+      setTimeout(() => {
+        openSocket();
+      }, 1000);
+    });
+
+    socket.addEventListener('error', (event) => {
+      console.error('WebSocket error:', event);
+    });
+  }
+
+  openSocket();
+
 
   return { gameState, player1, player2, gameTurn, attackAnimation, chatOpen, chatMessages, toggleChat, getData, getGameState, showAttackAnimation, sendChatMessage };
 });
