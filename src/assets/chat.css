@@ -1,5 +1,5 @@
 .chat-area {
-  background-image: url(../images/dialogBoxFinal.png);
+  background-image: url(./images/dialogBoxFinal.png);
   background-size: cover;
   width: 66vh;
   height: 30vh;
@@ -16,7 +16,7 @@
 }
 
 .send-message {
-  background-image: url(../images/messageBackground.png);
+  background-image: url(./images/messageBackground.png);
   background-size: cover;
   width: 58vh;
   height: 20.7vh;

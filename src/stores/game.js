@@ -120,9 +120,6 @@ export const useGameStore = defineStore('game', () => {
     socket.addEventListener('close', (event) => {
       console.log('WebSocket connection closed:', event);
 
-      setTimeout(() => {
-        openSocket();
-      }, 1000);
     });
 
     socket.addEventListener('error', (event) => {
