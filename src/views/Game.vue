@@ -22,10 +22,17 @@ onBeforeMount(async () => {
   <main>
     <div class="row game-view">
       <ChatModule v-if="chatOpen" :currentPlayerData="currentPlayer"/>
+      <Suspense>
       <div class="container-fluid">
         <GameFieldModule :player1Data="player1" :player2Data="player2" />
         <GameMenuModule />
       </div>
+        <template #fallback>
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </template>
+      </Suspense>
     </div>
   </main>
 </template>

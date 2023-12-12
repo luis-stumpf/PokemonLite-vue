@@ -2,10 +2,25 @@
 
 import Pokemon from '@/components/GameField/Pokemon.vue';
 import PokemonStatus from '@/components/GameField/PokemonStatus.vue';
+import { computed } from 'vue';
+import { useGameStore } from '@/stores/game';
+
+const { getData } = useGameStore();
 
 const props = defineProps({
-  player1Data: Object,
-  player2Data: Object,
+  player1Data: Object | String,
+  player2Data: Object | String,
+})
+
+
+await getData();
+
+const currentPokemonP1 = computed(() => {
+  return props.player1Data.pokemons.contents && props.player1Data.pokemons.contents[props.player1Data.currentPoke]
+})
+
+const currentPokemonP2 = computed(() => {
+  return props.player2Data.pokemons.contents && props.player2Data.pokemons.contents[props.player2Data.currentPoke]
 })
 
 </script>
@@ -16,18 +31,18 @@ const props = defineProps({
     <div class="overlay-content">
       <div class="row h-50">
         <div id="player-1-status" class="col">
-          <PokemonStatus :pokemon="player1Data.pokemons.contents[player1Data.currentPoke]"/>
+          <PokemonStatus :pokemon="currentPokemonP1"/>
         </div>
         <div id="player-1-pokemon" class="col position-relative">
-          <Pokemon :pokemon="player1Data.pokemons.contents[player1Data.currentPoke]" side="Front" playerNr="1"/>
+          <Pokemon :pokemon="currentPokemonP1" side="Front" playerNr="1"/>
         </div>
       </div>
       <div class="row h-50">
         <div id="player-2-pokemon" class="col position-relative">
-          <Pokemon :pokemon="player2Data.pokemons.contents[player2Data.currentPoke]" side="Back" playerNr="2"/>
+          <Pokemon :pokemon="currentPokemonP2" side="Back" playerNr="2"/>
         </div>
         <div id="player-2-status" class="col">
-          <PokemonStatus :pokemon="player2Data.pokemons.contents[player2Data.currentPoke]"/>
+          <PokemonStatus :pokemon="currentPokemonP2"/>
         </div>
       </div>
     </div>
