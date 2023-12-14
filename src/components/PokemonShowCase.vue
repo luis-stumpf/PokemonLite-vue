@@ -8,6 +8,7 @@ const props = defineProps({
   },
 });
 
+
 </script>
 
 <template>
@@ -17,7 +18,7 @@ const props = defineProps({
         <div>
           {{ pokemon }}
           <br>
-          <img class="pokemon-image img-fluid" :src="`/src/assets/images/pokemons/${pokemon}Front.gif`" height="200" alt="">
+          <img class="pokemon-image img-fluid" :src="`/pokemons/${pokemon}Front.gif`" height="200" alt="">
         </div>
       </li>
     </div>

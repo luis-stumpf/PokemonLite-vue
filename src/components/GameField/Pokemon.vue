@@ -25,7 +25,7 @@ const attackAnimationType = computed(() => {
 <template>
   <img v-if="gifToShow" class="img-fluid" :src="`src/assets/images/attackGifs/${attackAnimationType}.gif`"
     alt="pokemon front" style="width: 40%; margin-left: 10%; object-fit: contain; z-index: 2">
-  <img class="img-fluid" :src="`/src/assets/images/pokemons/${pokemon.pType}${side}.gif`" alt="pokemon front"
+  <img class="img-fluid" :src="`/pokemons/${pokemon.pType}${side}.gif`" alt="pokemon front"
     style="width: 40%; margin-left: 10%;  object-fit: contain">
 </template>
 

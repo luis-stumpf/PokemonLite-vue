@@ -11,7 +11,7 @@ const props = defineProps({
 
 <template>
   <button @click="onClickHandler(move)" class="pokemon-button small">
-    <img class="img-fluid" :src="`/src/assets/images/pokemons/${pokemon.pType}Front.gif`" style="width: 10vh;" alt="">
+    <img class="img-fluid" :src="`/pokemons/${pokemon.pType}Front.gif`" style="width: 10vh;" alt="">
     {{ pokemon.pType }}
     <br>
     HP: {{ pokemon.hp }}
