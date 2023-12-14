@@ -10,10 +10,12 @@ import CONSTANTS from '@/constants';
 import AttackButton from '@/components/Buttons/AttackButton.vue';
 import { usePokemonsStore } from '@/stores/pokemons';
 import { useGameStore } from '@/stores/game';
+import { onBeforeMount } from 'vue';
 
 const { showAttackAnimation } = useGameStore();
 
 const { pokemons } = storeToRefs(usePokemonsStore());
+const { getPokemonsData } = usePokemonsStore();
 
 const props = defineProps({
   player: Object,
@@ -34,6 +36,10 @@ const onClickHandler = (move) => {
     move,
   })
 }
+
+onBeforeMount(() => {
+  getPokemonsData();
+})
 
 </script>
 

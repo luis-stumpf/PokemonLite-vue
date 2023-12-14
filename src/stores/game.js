@@ -104,15 +104,16 @@ export const useGameStore = defineStore('game', () => {
     socket.addEventListener('open', (event) => {
       console.log('WebSocket connection opened:', event);
       socket
-      getData();
       getGameState();
       getChatMessages();
+      if (gameState.value === "InitState()" || gameState.value === "InitPlayerPokemonState()") return;
+      getData();
     });
 
-    socket.addEventListener('message', (event) => {
+    socket.addEventListener('message', async (event) => {
       console.log('WebSocket message received:', event);
       if (event.data === "new message") return getChatMessages();
-      getGameState();
+      await getGameState();
       if (gameState.value === "InitState()" || gameState.value === "InitPlayerPokemonState()") return;
       getData();
     });

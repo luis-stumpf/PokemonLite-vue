@@ -19,6 +19,3 @@ onBeforeMount(async () => {
 
   <RouterView />
 </template>
-
-<style scoped>
-</style>
