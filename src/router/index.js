@@ -8,26 +8,30 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: { name: 'Home' }
+    },
+    {
+      path: '/PokemonLite-vue/',
       name: 'Home',
       component: Home
     },
     {
-      path: '/init',
+      path: '/PokemonLite-vue/init',
       name: 'initial',
       component: () => import('../views/Initial.vue')
     },
     {
-      path: '/game',
+      path: '/PokemonLite-vue/game',
       name: 'Game',
       component: () => import('../views/Game.vue')
     },
     {
-      path: '/rules',
+      path: '/PokemonLite-vue/rules',
       name: 'Rules',
       component: () => import('../views/Rules.vue')
     },
     {
-      path: '/restart',
+      path: '/PokemonLite-vue/restart',
       name: 'Restart',
       // Implement a method or action to reset the state and navigate to the initial route
       beforeEnter: (to, from, next) => {
