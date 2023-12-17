@@ -1,0 +1,1 @@
+import{_ as s,o,c as a,a as e,t as c}from"./index-qM21iMc6.js";const i={class:"row"},r={class:"chooseTitleContainer"},_={class:"chooseTitle"},n={__name:"ChooseTitle",props:{title:{type:String,required:!0}},setup(t){return(l,d)=>(o(),a("div",i,[e("div",r,[e("div",_,c(t.title),1)])]))}},h=s(n,[["__scopeId","data-v-04902ea5"]]);export{h as C};

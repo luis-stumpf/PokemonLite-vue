@@ -14,8 +14,10 @@ const pokemonSamples = allPokemons.map(name => ({
 }));
 
 const CONSTANTS = {
-  serverUrl: process.env.NODE_ENV === 'production' ? 'https://pokemonlite.fly.dev' : "http://localhost:9000",
-  websocketUrl: process.env.NODE_ENV === 'production' ? "ws://pokemonlite.fly.dev/websocket" : "ws://localhost:9000/websocket",
+  //serverUrl: "http://localhost:9000",
+  serverUrl: 'https://pokemonlite.fly.dev',
+  //websocketUrl: "ws://localhost:9000/websocket",
+  websocketUrl:  "ws://pokemonlite.fly.dev/websocket",
   allPokemons,
   pokemonSamples,
 }
