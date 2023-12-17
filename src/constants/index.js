@@ -17,7 +17,7 @@ const CONSTANTS = {
   //serverUrl: "http://localhost:9000",
   serverUrl: 'https://pokemonlite.fly.dev',
   //websocketUrl: "ws://localhost:9000/websocket",
-  websocketUrl:  "ws://pokemonlite.fly.dev/websocket",
+  websocketUrl:  "wss://pokemonlite.fly.dev/websocket",
   allPokemons,
   pokemonSamples,
 }
