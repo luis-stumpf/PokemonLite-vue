@@ -15,15 +15,15 @@ export default defineConfig({
       }
     }),
     VitePWA({
-      registerType: 'autoUpdate',
-      injectRegister: 'auto',
-      devOptions: {
-        enabled: true,
-      },
+      mode: 'development',
+      base: '/',
+      srcDir: 'src',
+      filename: 'sw.js',
       includeAssets: ['favicon.ico'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue,txt,woff2,gif}']
       },
+      strategies: 'injectManifest',
       manifest: {
         name: 'PokemonLite',
         short_name: 'PokeLite',
