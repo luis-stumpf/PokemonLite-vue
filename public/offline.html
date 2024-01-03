@@ -6,6 +6,80 @@
   <title>Document</title>
 </head>
 <body>
-  you are offline
+  <div class="container-fluid">
+      <div class="row d-flex flex-column-reverse align-items-center">
+          <div class="col-10 col-sm-9 col-md-11 col-lg-12 offset-md-0 offset-sm-1 text-center">
+              <img class="titleImage img-fluid" src="../src/assets/images/Logo.png" alt="">
+          </div>
+          <div class="col-10 col-sm-9 col-md-11 col-lg-12 offset-md-0 offset-sm-1">
+              <div class="d-flex justify-content-center mx-auto">
+                  <div class="speechBubble img-fluid text-center">
+                      <p style="font-size: 4em; font-weight: bold; letter-spacing: 0.1em; margin-bottom: -1.2rem; ">Oooops!</p>
+                      <p style="font-size: 2.7em;">Your device is currently offline. Please check your network connection, then try again.</p>
+                      <button class="reload-button" @click="reload">Try again</button>
+                  </div>
+                  <div class="col-10 col-sm-9 col-md-11 col-lg-12 offset-md-0 offset-sm-1">
+                      <img class="noConnection img-fluid" src="../public/noConnection.png" alt="">
+                      <img class="pickachuMeme img-fluid" src="../public/PickachuMeme.png" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </body>
+<style>
+    .noConnection {
+        bottom: 9.7em;
+        height: 5rem;
+        position: absolute;
+        right: 7.8em;
+    }
+
+    .pickachuMeme {
+        bottom: -0.3em;
+        height: 13.5rem;
+        position: absolute;
+        right: 2em;
+    }
+
+    .reload-button {
+        background-color: #7ab66b;
+        border: 2px solid #39853C;
+        border-radius: 2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        image-rendering: pixelated;
+        font-size: 1.7rem;
+        line-height: 1rem;
+        color: white;
+        margin-top: 0.4rem;
+        padding: 0.3rem 1rem 0.5rem 1rem;
+    }
+
+    .reload-button:hover {
+        background-color: #92d183;
+    }
+
+    .speechBubble {
+        background-image: url("speechBubble2.png");
+        background-size: cover;
+        bottom: 2rem;
+        height: 22rem;
+        padding: 1.2em 3em 3em 3em;
+        position: absolute;
+        width: 47rem;
+    }
+
+    .speechBubble p {
+        color: #626262;
+        margin: 0;
+        text-shadow: 2px 2px rgba(210, 212, 202, 100);
+    }
+</style>
+
+<!--<script>
+    const reload = () => {
+        location.reload();
+    }
+</script>-->
 </html>

@@ -8,6 +8,10 @@ const startGame = () => {
     router.push('/init');
 };
 
+const rules = () => {
+  router.push('/rules');
+}
+
 </script>
 
 <template>
@@ -18,7 +22,7 @@ const startGame = () => {
       </div>
       <div class="text-end col-md-8 offset-md-4 col-sm-3 offset-sm-9 text-end">
           <button id="rulesButton" class="bookButton">
-            <img class="bookImage img-fluid" src="@/assets/images/bookIcon.png" alt="">
+            <img class="bookImage img-fluid" src="@/assets/images/bookIcon.png" alt="" @click="rules">
           </button>
       </div>
     </div>
