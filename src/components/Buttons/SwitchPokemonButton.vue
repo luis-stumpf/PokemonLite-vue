@@ -7,6 +7,10 @@ const props = defineProps({
   move: Number,
 })
 
+const hpToShow = computed(() => {
+  return props.pokemon.hp > 0 ? props.pokemon.hp : 'DEAD';
+})
+
 </script>
 
 <template>
@@ -14,7 +18,7 @@ const props = defineProps({
     <img class="img-fluid" :src="`/pokemons/${pokemon.pType}Front.gif`" style="width: 10vh;" alt="">
     {{ pokemon.pType }}
     <br>
-    HP: {{ pokemon.hp }}
+    HP: {{ hpToShow }}
   </button>
 </template>
 

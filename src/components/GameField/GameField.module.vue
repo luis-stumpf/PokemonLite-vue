@@ -52,8 +52,8 @@ const currentPokemonP2 = computed(() => {
 <style scoped>
 .image-container {
   position: relative;
-  width: 100%;
-  padding-top: 50%;
+  width: 70%;
+  padding-top: 35%;
   overflow: hidden;
   border: 10px solid darkslategrey;
   border-radius: 15px;

@@ -7,11 +7,12 @@ const props = defineProps({
 })
 
 const healthBarWidth = computed(() => {
-  return parseInt(props.pokemon.hp / props.pokemon.maxHp * 100);
+  const percentHp = parseInt(props.pokemon.hp / props.pokemon.maxHp * 100);
+  return percentHp > 0 ? percentHp : 0;
 });
 
 const healthOf = computed(() => {
-  return `${props.pokemon.hp} / ${props.pokemon.maxHp} `
+  return props.pokemon.hp > 0 ? `${props.pokemon.hp} / ${props.pokemon.maxHp} ` : 'DEAD';
 });
 
 </script>

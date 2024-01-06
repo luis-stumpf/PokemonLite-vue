@@ -17,6 +17,11 @@ const props = defineProps({
 })
 
 const onClickHandler = (move) => {
+  if (props.player.value.pokemons.contents[move - 1].hp <= 0) {
+    alert('Your selected Pokemon is dead. Please switch to another Pokemon.')
+
+    return
+  }
   axios.post(`${CONSTANTS.serverUrl}/api/switch`, {
     move,
   })
