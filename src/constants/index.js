@@ -14,8 +14,8 @@ const pokemonSamples = allPokemons.map(name => ({
 }));
 
 const CONSTANTS = {
-  serverUrl: "http://localhost:9000",
-  websocketUrl: "ws://localhost:9000/websocket",
+  serverUrl: "https://localhost:9000",
+  websocketUrl: "wss://localhost:9000/websocket",
   allPokemons,
   pokemonSamples,
 }
