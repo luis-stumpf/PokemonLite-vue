@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import axios from 'axios';
 import CONSTANTS from '@/constants';
 import Home from "@/views/Home.vue";

@@ -5,8 +5,8 @@ import CONSTANTS from '../constants';
 
 export const useGameStore = defineStore('game', () => {
 
-
   const gameState = ref("InitState()");
+
   const player1 = ref({
     name: "",
     pokemons: {
@@ -15,6 +15,7 @@ export const useGameStore = defineStore('game', () => {
     },
     currentPoke: 0
   });
+
   const player2 = ref({
     name: "",
     pokemons: {
@@ -23,7 +24,17 @@ export const useGameStore = defineStore('game', () => {
     },
     currentPoke: 0
   });
+
   const gameTurn = ref(0);
+
+  const winner = ref({
+    name: "",
+    pokemons: {
+      contents: [{}, {}, {}],
+      size: 0
+    },
+    currentPoke: 0
+  });
 
   const attackAnimation = ref({
     animationType: "",
@@ -83,6 +94,7 @@ export const useGameStore = defineStore('game', () => {
     player1.value = response.data.player1;
     player2.value = response.data.player2;
     gameTurn.value = response.data.turn;
+    winner.value = response.data.winner;
   }
 
   async function getGameState() {
@@ -131,5 +143,5 @@ export const useGameStore = defineStore('game', () => {
   openSocket();
 
 
-  return { gameState, player1, player2, gameTurn, attackAnimation, chatOpen, chatMessages, toggleChat, getData, getGameState, showAttackAnimation, sendChatMessage };
+  return { gameState, player1, player2, gameTurn, winner, attackAnimation, chatOpen, chatMessages, toggleChat, getData, getGameState, showAttackAnimation, sendChatMessage };
 });
