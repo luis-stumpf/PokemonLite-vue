@@ -16,7 +16,7 @@ export default defineConfig({
     }),
     VitePWA({
       mode: 'development',
-      base: '/',
+      base: '/PokemonLite-vue',
       srcDir: 'src',
       filename: 'sw.js',
       includeAssets: ['favicon.ico'],

@@ -14,8 +14,8 @@ const pokemonSamples = allPokemons.map(name => ({
 }));
 
 const CONSTANTS = {
-  serverUrl: "http://localhost:9000",
-  websocketUrl: "ws://localhost:9000/websocket",
+  serverUrl: import.meta.env.VUE_APP_SERVER_URL || "http://localhost:9000",
+  websocketUrl: import.meta.env.VUE_APP_WEBSOCKET_URL || "ws://localhost:9000/websocket", 
   allPokemons,
   pokemonSamples,
 }
