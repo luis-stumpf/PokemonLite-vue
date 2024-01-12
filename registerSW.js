@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/PokemoLite-vuesw.js', { scope: '/PokemoLite-vue' })})}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/PokemonLite-vuesw.js', { scope: '/PokemonLite-vue' })})}
