@@ -14,8 +14,8 @@ const pokemonSamples = allPokemons.map(name => ({
 }));
 
 const CONSTANTS = {
-  serverUrl: import.meta.env.VUE_APP_SERVER_URL || "http://localhost:9000",
-  websocketUrl: import.meta.env.VUE_APP_WEBSOCKET_URL || "ws://localhost:9000/websocket", 
+  serverUrl: "https://pokemonlite.fly.dev",
+  websocketUrl: "wss://pokemonlite.fly.dev/websocket",
   allPokemons,
   pokemonSamples,
 }
